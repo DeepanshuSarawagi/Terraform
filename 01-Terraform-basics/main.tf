@@ -9,8 +9,7 @@ terraform {
 
 provider aws {
   region = "us-east-1"
-  access_key = ""
-  secret_key = ""
+  profile = "default"
 }
 
 resource "aws_instance" "myEC2Instance" {
@@ -25,6 +24,7 @@ resource "aws_instance" "myEC2Instance" {
     delete_on_termination = "true"
     volume_size = 8
     volume_type = "gp2"
+    encrypted = "true"
   }
 }
 
