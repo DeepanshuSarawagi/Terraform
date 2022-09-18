@@ -1,5 +1,7 @@
 /*
-This file will manage the ami datasource resource which will get the latest AMI Id for Amazon linux 2
+This file will manage the ami datasource resource which will get the latest AMI Id for Amazon linux 2.
+We will dynamically find the amazon Linux2 AMI name using the filter options below and use the id attribute to get the
+AMI ID. This AMI ID will be referenced in the aws_instance resource.
 */
 
 data "aws_ami" "amzlinux2" {

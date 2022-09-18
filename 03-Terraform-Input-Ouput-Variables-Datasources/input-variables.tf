@@ -1,5 +1,5 @@
 /*
-This file is for managing input variables which will be used to provision EC2 instance
+This file is for managing input variables which will be used to provision EC2 instance.
 */
 
 variable "aws_region" {
