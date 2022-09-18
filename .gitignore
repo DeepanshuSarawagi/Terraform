@@ -33,3 +33,7 @@ override.tf.json
 .idea
 idea/
 idea/*
+
+#Ignore any private keys in the project
+**/*.pem
+**/*.ppk

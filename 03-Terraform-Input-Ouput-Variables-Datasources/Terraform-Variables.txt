@@ -1,0 +1,8 @@
+# This document is created to learn about Terraform-Variables in Terraform.
+# Created on 18-09-2022.
+# Created by Deepanshu Sarawagi.
+
+- There are three kinds of terraform variables
+- Terraform Input variables
+- Terraform Output values
+- Terraform Local values
