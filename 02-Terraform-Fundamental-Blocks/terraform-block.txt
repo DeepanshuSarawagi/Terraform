@@ -1,0 +1,7 @@
+# This document is created to learn about terraform-block in Terraform.
+# Created on 18-09-2022.
+# Created by Deepanshu Sarawagi.
+
+- Within a terraform block, only a constant value can be used.
+- Arguments may not refer to named objects such as resources, input variables.
+- May not use any terraform language built-in functions

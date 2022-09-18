@@ -12,14 +12,18 @@ provider aws {
   profile = "default"
 }
 
-resource "aws_instance" "myEC2Instance" {
-  ami = "ami-05fa00d4c63e32376"
+resource "aws_instance" "myEC2Instance" {  // The syntax is Resource-Type "Resource-Name" "Block Label"
+  ami = "ami-05fa00d4c63e32376"  // The syntax is Arguments/Identifiers = Argument-Values/Expression
   instance_type = "t2.micro"
   tags = {
     Name = "TerraformInstance1"
   }
   associate_public_ip_address = "true"
   availability_zone = "us-east-1a"
+  /*
+  Block inside block is called as provisioners. For our understanding, we can see tag is a block inside resource block.
+  root_block_device is a block inside resource block. Hence, these are termed as Provisioners.
+  */
   root_block_device {
     delete_on_termination = "true"
     volume_size = 8
