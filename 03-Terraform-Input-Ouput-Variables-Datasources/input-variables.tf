@@ -17,7 +17,7 @@ variable "instance_type" {
 variable "instance_key_pair" {
   description = "EC2 keypair that needs to be associated with EC2 instance for SSH"
   type = string
-  default = "terraform-key.pem"
+  default = "terraform-key"
 }
 
 variable "availability_zone" {
