@@ -15,9 +15,10 @@ provider "aws" {
 
 resource "aws_instance" "ec2Demo" {
   instance_type = var.instance_type
+  ami = data.aws_ami.amzlinux2.id
 #  availability_zone = var.availability_zone
   key_name = var.instance_key_pair
-  for_each = toset([data.aws_availability_zones.azs_east-1.names])
+  for_each = toset(data.aws_availability_zones.azs_east-1.names)
   tags = {
     Name = "TerraformDemo-EC2-Instance-${each.key}"
   }
