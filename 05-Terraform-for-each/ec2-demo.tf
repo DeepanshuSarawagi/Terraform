@@ -32,7 +32,7 @@ resource "aws_instance" "ec2Demo" {
     volume_type = "gp2"
   }
   ebs_block_device {
-    device_name = "/dev/sda"
+    device_name = "/dev/sdb"
     encrypted = true
     delete_on_termination = true
     volume_size = 8
