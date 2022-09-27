@@ -15,13 +15,14 @@ terraform {
   required_version = "~> 1.0"
   required_providers {
     aws = {
-      source = "hashicorp/aws"
+      source = "registry.terraform.io/hashicorp/aws"
       version = "~> 4.0"
     }
   }
 }
 
 ```
+- The naming convention of source is HOSTNAME/NAMESPACE/TYPE
 
 ### 1b. Provider block
 - Respective provider configuration.
@@ -35,4 +36,4 @@ provider "aws" {
 
 ### 1c. Dependency lock file
 - The lock file will have provider version related information which will be locked in this file.
-- 
+- Terraform configurations always refer to local name of provider outside of required_providers block.
