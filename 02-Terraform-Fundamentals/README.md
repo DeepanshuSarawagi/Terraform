@@ -65,4 +65,9 @@ resource "aws_vpc" "vpc-west-1" {
 }
 ```
 
-
+## 3. Dependency lock files
+- Added in terraform version > 0.14
+- Dependency lock file works only on provider version locking.
+- Version Constraints within the configuration itself determine which version of dependencies are potentially compatible.
+- After selecting a specific version of each dependency using Version Constraints, Terraform remembers the decisions it made
+  in a dependency lock file so that it can make the same decisions again in the future.
