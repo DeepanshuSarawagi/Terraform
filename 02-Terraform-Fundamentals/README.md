@@ -37,3 +37,30 @@ provider "aws" {
 ### 1c. Dependency lock file
 - The lock file will have provider version related information which will be locked in this file.
 - Terraform configurations always refer to local name of provider outside of required_providers block.
+
+## 2. Multiple Provider configuration
+- We can define multiple configuration for the same provider and select which one to use on per-resource or per-module basis.
+- The primary reason is to provide multiple region for a cloud provider to provision resources.
+
+```terraform
+provider "aws" {
+  profile = "default"
+  region = "us-east-1"
+}
+
+provider "aws" {
+  profile = "default"
+  region = "us-west-1"
+  alias = "aws-west-1"
+}
+
+// resource configuration block
+
+resource "aws_vpc" "vpc-west-1" {
+  cidr_block = "10.100.0.0/16"
+  provider = "aws.aws-west-1"  // We used meta argument to create VPC resource in us-west-1 region
+  tags = {
+    Name = "VPC in US-WEST-1 region"
+  }
+}
+```
