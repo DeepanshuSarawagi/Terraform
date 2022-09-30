@@ -1,4 +1,4 @@
-variable "region" {
+variable "region" {  // test commit
   type = string
   description = "Specify the region in which AWS resources needs to be created"
   default = "us-east-1"
