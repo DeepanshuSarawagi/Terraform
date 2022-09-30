@@ -25,7 +25,7 @@ resource "aws_instance" "EC2Demo" {
   }
   key_name = "terraform-key"
   tags = {
-    Name = "EC2-Terraform-East1a"
+    Name = "EC2-Terraform-East1b"
     tag1 = "Web-server"
   }
 }
