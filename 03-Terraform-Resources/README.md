@@ -36,4 +36,4 @@ resource "aws_vpc" "vpc-east-1" {
 - Create resources that exist in the configuration but are not associated with a real infrastructure object in state.
 - Destroy resources that exist in the state but no longer exist in the configuration.
 - Update in-place resources whose configurations have changed.
-- 
+- Destroy and re-create resources whose arguments have changes but which cannot be updated in-place due to remote API limitations.
