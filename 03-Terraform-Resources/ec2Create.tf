@@ -15,7 +15,7 @@ provider "aws" {
 
 resource "aws_instance" "EC2Demo" {
   ami                         = "ami-026b57f3c383c2eec"
-  associate_public_ip_address = false
+  associate_public_ip_address = true
   instance_type               = "t2.micro"
   availability_zone           = "us-east-1a"
   root_block_device {
@@ -26,5 +26,6 @@ resource "aws_instance" "EC2Demo" {
   key_name = "terraform-key"
   tags = {
     Name = "EC2-Terraform-East1a"
+    tag1 = "Web-server"
   }
 }
