@@ -17,7 +17,7 @@ resource "aws_instance" "EC2Demo" {
   ami                         = "ami-026b57f3c383c2eec"
   associate_public_ip_address = true
   instance_type               = "t2.micro"
-  availability_zone           = "us-east-1a"
+  availability_zone           = "us-east-1b"
   root_block_device {
     encrypted             = true
     volume_type           = "gp2"
