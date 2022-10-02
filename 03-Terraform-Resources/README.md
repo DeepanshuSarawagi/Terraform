@@ -42,8 +42,14 @@ resource "aws_vpc" "vpc-east-1" {
 - Meta arguments can be used with any resource type to change its behavior.
 - Following are the meta arguments
   - depends_on
+    - To handle hidden resources or module dependencies that Terraform can't automatically infer.
   - for_each
+    - To create multiple instances according to a map or set of strings.
   - count
+    - For creating multiple resources according to a count.
   - provider
+    - For selecting a non-default provider configuration.
   - lifecycle
+    - Standard resource behaviour can be altered using special nested lifecycle block within a resource body block.
   - provisioners and connections
+    - For taking extra actions after resource creation like installing app on server or take action on local machine.
