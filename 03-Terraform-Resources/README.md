@@ -43,6 +43,8 @@ resource "aws_vpc" "vpc-east-1" {
 - Following are the meta arguments
   - depends_on
     - To handle hidden resources or module dependencies that Terraform can't automatically infer.
+    - Explicitly specifying a dependency is only necessary when a resource or module is dependent on some other resource
+      behaviour but doesn't access any of that resource's data in its argument. 
   - for_each
     - To create multiple instances according to a map or set of strings.
   - count
