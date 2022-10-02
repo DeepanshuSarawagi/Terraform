@@ -37,3 +37,13 @@ resource "aws_vpc" "vpc-east-1" {
 - Destroy resources that exist in the state but no longer exist in the configuration.
 - Update in-place resources whose configurations have changed.
 - Destroy and re-create resources whose arguments have changes but which cannot be updated in-place due to remote API limitations.
+
+## 3. Resource Meta Arguments
+- Meta arguments can be used with any resource type to change its behavior.
+- Following are the meta arguments
+  - depends_on
+  - for_each
+  - count
+  - provider
+  - lifecycle
+  - provisioners and connections
