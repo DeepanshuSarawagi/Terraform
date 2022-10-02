@@ -1,8 +1,8 @@
 # Create VPC
 resource "aws_vpc" "vpc-dev" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block           = "10.0.0.0/16"
   enable_dns_hostnames = true
-  enable_dns_support = true
+  enable_dns_support   = true
   tags = {
     Name = "vpc-dev-us-east-1"
   }
@@ -10,9 +10,9 @@ resource "aws_vpc" "vpc-dev" {
 
 #Create public subnet in vpc-dev
 resource "aws_subnet" "vpc-dev-public-subnet-1" {
-  vpc_id = aws_vpc.vpc-dev.id
-  cidr_block = "10.0.1.0/24"
-  availability_zone = "us-east-1a"
+  vpc_id                  = aws_vpc.vpc-dev.id
+  cidr_block              = "10.0.1.0/24"
+  availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
   tags = {
     Name = "vpc-dev-public-subnet-1"
@@ -44,35 +44,35 @@ resource "aws_route_table" "vpc-dev-public-route-table" {
 # Associate route table with public subnet
 resource "aws_route_table_association" "vpc-dev-route-table-associate" {
   route_table_id = aws_route_table.vpc-dev-public-route-table.id
-  subnet_id = aws_subnet.vpc-dev-public-subnet-1.id
+  subnet_id      = aws_subnet.vpc-dev-public-subnet-1.id
 }
 
 # Create security group in VPC
 resource "aws_security_group" "vpc-dev-sg-east-1" {
-  name = "vpc-dev-sg-east-1"
+  name        = "vpc-dev-sg-east-1"
   description = "Allow SSH and HTTP access from internet"
-  vpc_id = aws_vpc.vpc-dev.id
+  vpc_id      = aws_vpc.vpc-dev.id
 
   ingress {
-    from_port = 22
-    protocol  = "tcp"
-    to_port   = 22
+    from_port   = 22
+    protocol    = "tcp"
+    to_port     = 22
     description = "SSH access from internet"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
-    from_port = 80
-    protocol  = "tcp"
-    to_port   = 80
+    from_port   = 80
+    protocol    = "tcp"
+    to_port     = 80
     description = "HTTP access from internet"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
-    from_port = 0
-    protocol  = "-1"
-    to_port   = 0
+    from_port   = 0
+    protocol    = "-1"
+    to_port     = 0
     cidr_blocks = ["0.0.0.0/0"]
     description = "Outbound connections"
   }
@@ -80,4 +80,11 @@ resource "aws_security_group" "vpc-dev-sg-east-1" {
   tags = {
     Name = "vpc-dev-sg-east-1"
   }
+}
+
+# Create a resource for EIP
+resource "aws_eip" "vpc-dev-eip" {
+  instance   = aws_instance.EC2Demo.id
+  vpc        = true
+  depends_on = [aws_internet_gateway.vpc-dev-igw]
 }
