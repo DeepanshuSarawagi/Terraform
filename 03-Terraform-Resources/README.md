@@ -56,6 +56,25 @@ resource "aws_vpc" "vpc-east-1" {
 
   - count
     - For creating multiple resources according to a count.
+    - If a resource or module has a count meta-argument which value is a whole number, Terraform will create that many 
+      instances.
+    - Each instance has a distinct infrastructure object associated with it, and each is separately created, updated or
+      destroyed when the configuration is applied.
+    - The count meta-argument accepts numeric expressions. The count value must be known before Terraform performs any remote
+      resource actions.
+    - ```count.index``` The distinct index number starting with 0 corresponds to the instance.
+    - When count is set, Terraform distinguishes between block and the multiple resources or module instance associated with it.
+    - Instances are identified by an index number starting with 0.
+    - ```terraform
+      resource "aws_instance" "web" {
+        instance_type = "t2.micro"
+        ami = "ami-abcdefghijk"
+        count = 5
+        tags = {
+        Name = "web-${count.index}"
+          }
+      }
+      ```
 
   - provider
     - For selecting a non-default provider configuration.
