@@ -44,14 +44,24 @@ resource "aws_vpc" "vpc-east-1" {
   - depends_on
     - To handle hidden resources or module dependencies that Terraform can't automatically infer.
     - Explicitly specifying a dependency is only necessary when a resource or module is dependent on some other resource
-      behaviour but doesn't access any of that resource's data in its argument. 
+      behaviour but doesn't access any of that resource's data in its argument.
+    - This argument is present in module blocks and all resource block, regardless of its type.
+    - The depends_on meta-argument if present, must be a list of references of other resources or child modules in the same
+      calling module.
+    - Arbitrary expressions are not allowed.
+    - This must only be used as a last resort.
+
   - for_each
     - To create multiple instances according to a map or set of strings.
+
   - count
     - For creating multiple resources according to a count.
+
   - provider
     - For selecting a non-default provider configuration.
+
   - lifecycle
     - Standard resource behaviour can be altered using special nested lifecycle block within a resource body block.
+
   - provisioners and connections
     - For taking extra actions after resource creation like installing app on server or take action on local machine.
