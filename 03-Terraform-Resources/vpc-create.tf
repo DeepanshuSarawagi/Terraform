@@ -74,6 +74,7 @@ resource "aws_security_group" "vpc-dev-sg-east-1" {
     protocol  = "-1"
     to_port   = 0
     cidr_blocks = ["0.0.0.0/0"]
+    description = "Outbound connections"
   }
 
   tags = {
