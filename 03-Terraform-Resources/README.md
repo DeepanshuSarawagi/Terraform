@@ -64,7 +64,7 @@ resource "aws_vpc" "vpc-east-1" {
     - ```each.key``` - The map key or set member corresponding to this instance.
     - ```each.value``` - The map value corresponding to this instance. If a set is used in ```for_each```
       then ```each.key = each.value```.
-  - Implementation of [for_each](03c-Terraform-for-each-meta-arg\s3-bucket.tf).
+  - Implementation of ```for_each``` [using maps](03c-Terraform-for-each-meta-arg\s3-bucket.tf).
 
 ### 3c. count:
   - For creating multiple resources according to a count.
