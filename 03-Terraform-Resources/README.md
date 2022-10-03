@@ -94,6 +94,13 @@ resource "aws_vpc" "vpc-east-1" {
 
 ### 3e. lifecycle:
   - Standard resource behaviour can be altered using special nested lifecycle block within a resource body block.
+  - It is a nested block that can appear within a resource block.
+  - It is available for all resource blocks irrespective of its type.
+  - Three ways we can change the behavior of a resource:
+    - ```create_before_destroy```: Default behaviour of resource is destroy and then create. With this meta-argument, it
+      is first created and then destroyed. For implementation example, refer [here](03d-Terraform-lifecyle-meta-arg/lifecycle-demo.tf).
+    - ```prevent_destroy```
+    - ```ignore_changes```
 
 ### 3f. provisioners and connections:
   - For taking extra actions after resource creation like installing app on server or take action on local machine.
