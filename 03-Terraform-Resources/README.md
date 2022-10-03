@@ -102,6 +102,7 @@ resource "aws_vpc" "vpc-east-1" {
     - ```prevent_destroy```: This will prevent Terraform from destroying any resources. For example, refer [here](03d-Terraform-lifecyle-meta-arg/lifecycle-prevent_destroy-demo.tf)
     - ```ignore_changes```: By default, Terraform will remove any manual changes made to the resource since it doesn't match 
       with resource state file. Using this lifecycle meta-argument, Terraform will accept any manual changes made to the environment.
+      For implementation example, refer [here](03d-Terraform-lifecyle-meta-arg/lifecycle-ignore_changes-demo.tf)
 
 ### 3f. provisioners and connections:
   - For taking extra actions after resource creation like installing app on server or take action on local machine.
