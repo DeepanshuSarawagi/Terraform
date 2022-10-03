@@ -50,6 +50,7 @@ resource "aws_vpc" "vpc-east-1" {
       calling module.
     - Arbitrary expressions are not allowed.
     - This must only be used as a last resort.
+    - For implementation, refer to this [code example](03a-Terraform-depends-on-meta-arg/vpc-create.tf).
 
   - for_each
     - To create multiple instances according to a map or set of strings.
@@ -75,6 +76,7 @@ resource "aws_vpc" "vpc-east-1" {
           }
       }
       ```
+    - For implementation, refer to this [code example](03b-Terraform-count-meta-arg/ec2Create.tf).
 
   - provider
     - For selecting a non-default provider configuration.
