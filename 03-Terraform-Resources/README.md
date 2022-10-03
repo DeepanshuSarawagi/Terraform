@@ -98,7 +98,7 @@ resource "aws_vpc" "vpc-east-1" {
   - It is available for all resource blocks irrespective of its type.
   - Three ways we can change the behavior of a resource:
     - ```create_before_destroy```: Default behaviour of resource is destroy and then create. With this meta-argument, it
-      is first created and then destroyed. For implementation example, refer [here](03d-Terraform-lifecyle-meta-arg/lifecycle-demo.tf).
+      is first created and then destroyed. For implementation example, refer [here](03d-Terraform-lifecyle-meta-arg/lifecycle-create_before_destroy-demo.tf).
     - ```prevent_destroy```
     - ```ignore_changes```
 

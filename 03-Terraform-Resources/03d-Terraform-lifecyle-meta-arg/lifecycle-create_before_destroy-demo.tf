@@ -1,5 +1,5 @@
 locals {
-  availability_zone = "us-east-1a"
+  availability_zone = "us-east-1b"
 }
 
 resource "aws_instance" "web-us-east-1" {
