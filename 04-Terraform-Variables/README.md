@@ -27,4 +27,5 @@ the modules own source code, and allowing modules to be shared between different
       $terraform apply --auto-approve
       ```
     - Once terraform apply is complete, you can unset the environment variables using ```unset``` command.
-- 
+- For assigning input variables using [terraform.tfvars](04a-Terraform-Input-variables-basics/terraform.tfvars), check [this](04a-Terraform-Input-variables-basics/terraform.tfvars).
+  - If [terraform.tfvars](04a-Terraform-Input-variables-basics/terraform.tfvars) is created, Terraform will override the default values defined in [variables.tf](04a-Terraform-Input-variables-basics/variables.tf).

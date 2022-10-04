@@ -10,14 +10,14 @@ variable "aws_region" {
   type        = string
 }
 
-variable "az" {                                         // We be overriding this variable with -var switch in cli
+variable "az" { // We be overriding this variable with -var switch in cli
   default     = "us-east-1a"
   description = "Availability zone where resource needs to be provisioned"
   type        = string
 }
 
 variable "resource_count" {
-  default     = 1                                       // We be overriding this variable with -var switch in cli
+  default     = 1 // We be overriding this variable with -var switch in cli
   description = "No. of instances to be provisioned"
   type        = number
 }
