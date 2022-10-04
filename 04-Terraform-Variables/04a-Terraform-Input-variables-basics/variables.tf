@@ -1,5 +1,5 @@
 variable "instance_type" {
-  #  default     = "t2.micro"          // Default value is not defined so that it gets prompted during apply
+  #  default     = "t2.micro"                           // Default value is not defined so that it gets prompted during apply
   description = "EC2 instance type"
   type        = string
 }
@@ -10,14 +10,14 @@ variable "aws_region" {
   type        = string
 }
 
-variable "az" {
+variable "az" {                                         // We be overriding this variable with -var switch in cli
   default     = "us-east-1a"
   description = "Availability zone where resource needs to be provisioned"
   type        = string
 }
 
 variable "resource_count" {
-  default     = 3
+  default     = 1                                       // We be overriding this variable with -var switch in cli
   description = "No. of instances to be provisioned"
   type        = number
 }
