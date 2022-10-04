@@ -1,5 +1,5 @@
 variable "instance_type" {
-  default     = "t2.micro"
+  #  default     = "t2.micro"          // Default value is not defined so that it gets prompted during apply
   description = "EC2 instance type"
   type        = string
 }

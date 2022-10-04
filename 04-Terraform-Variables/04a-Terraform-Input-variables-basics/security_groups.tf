@@ -1,6 +1,6 @@
 resource "aws_security_group" "vpc_ssh_web" {
   description = "Allow SSH access to the instance"
-  name = "vpc-ssh-web"
+  name        = "vpc-ssh-web"
   ingress {
     from_port   = 22
     protocol    = "tcp"
