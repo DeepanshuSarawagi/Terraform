@@ -35,3 +35,8 @@ the modules own source code, and allowing modules to be shared between different
   while doing terraform plan or apply.
 - ```terrform plan -var-file="dev.tfvars"```
 - ```terrform apply -var-file="dev.tfvars"```
+
+## 4. Input variables with .auto.tfvars file
+- If we create a variables file name with .auto-tfvars extension, variables will be automatically picked up from this file
+  during terraform plan and apply.
+- For example, refer this [file](04c-Terraform-Input-variables-auto-tfvars/dev.auto.tfvars).
