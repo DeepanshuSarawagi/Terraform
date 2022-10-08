@@ -43,3 +43,6 @@ the modules own source code, and allowing modules to be shared between different
 
 ## 5. Input variables - Constructors with type List
 - Input variables with type as list of strings. For example, refer [variables.tf](04d-Terraform-Input-variables-type-list/variables.tf).
+
+## 6. Input variables - Constructors with type Map
+- Variables defined are map of strings. For example, refer [variables.tf](04e-Terraform-Input-variables-type-map/variables.tf)
