@@ -46,3 +46,30 @@ the modules own source code, and allowing modules to be shared between different
 
 ## 6. Input variables - Constructors with type Map
 - Variables defined are map of strings. For example, refer [variables.tf](04e-Terraform-Input-variables-type-map/variables.tf)
+
+## 7. Terraform console
+- ```terraform console``` command provides an interactive console for evaluating expressions.
+  - ```
+    $terraform console
+    > 1 + 5
+    6
+    > length("deep")  // Returns length of string
+    4
+    > length(["a", "b", "c"])  // Returns of length of list
+    3
+    > length({"key" = "value", "key2" = "value2"})  // Returns length of map
+    2
+    
+    // Below function will return the substring of a string. 
+    substr("string", offset, length)
+    
+    
+    > substr("some string", 0, 3)
+    "som"
+    > substr("some string", 0, 6)
+    "some s"
+    > substr("some string", 0, 8)
+    "some str"
+    > substr("some string", 1, 10)
+    "ome string"
+    ```
