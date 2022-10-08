@@ -40,3 +40,6 @@ the modules own source code, and allowing modules to be shared between different
 - If we create a variables file name with .auto-tfvars extension, variables will be automatically picked up from this file
   during terraform plan and apply.
 - For example, refer this [file](04c-Terraform-Input-variables-auto-tfvars/dev.auto.tfvars).
+
+## 5. Input variables - Constructors with type List
+- Input variables with type as list of strings. For example, refer [variables.tf](04d-Terraform-Input-variables-type-list/variables.tf).
