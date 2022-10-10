@@ -102,3 +102,12 @@ the modules own source code, and allowing modules to be shared between different
 - We then created one more file called [secrets.tfvars](04g-Terraform-Input-variables-sesitive-variables/secrets.tfvars) file to store the sensitive variable values.
 - We will use this file in the terraform command using ```-var-file="secrets.tfvars"``` switch.
   - ```terraform apply -var-file="secrets.tfvars" --auto-approve```
+
+## 10. Variable definition precedence
+
+Terraform loads variables in the following order, with later sources taking precedence over earlier ones.
+- Environment variables
+- terraform.tfvars
+- terraform.tfvars.json
+- *.auto.tfvars or *.auto.tfvars.json
+- Any -var or -var-file option on the command line in the order they are provided.
