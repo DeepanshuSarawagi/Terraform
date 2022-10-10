@@ -73,3 +73,23 @@ the modules own source code, and allowing modules to be shared between different
     > substr("some string", 1, 10)
     "ome string"
     ```
+    
+## 8. Input variables - Custom validation rule
+
+- We can add custom validation rules while defining variables.
+  - For implementation, please check [variables.tf](04f-Terraform-Input-variables-custom-validation/variables.tf)
+    - ```
+      D:\Learning\Terraform\04-Terraform-Variables\04f-Terraform-Input-variables-custom-validation> terraform plan    
+      ╷
+      │ Error: Invalid value for variable
+      │
+      │   on variables.tf line 25:
+      │   25: variable "ami_id" {
+      │     ├────────────────
+      │     │ var.ami_id is "am"
+      │
+      │ The length of AMI id invalid or it should start with "ami-".
+      │
+      │ This was checked by the validation rule at variables.tf:30,3-13.
+      ```
+  - We get below error when we assigned incorrect value to the variable ```ami_id``` in [dev.auto.tfvars](04f-Terraform-Input-variables-custom-validation/dev.auto.tfvars).
