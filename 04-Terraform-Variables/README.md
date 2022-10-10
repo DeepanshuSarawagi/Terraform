@@ -93,3 +93,12 @@ the modules own source code, and allowing modules to be shared between different
       │ This was checked by the validation rule at variables.tf:30,3-13.
       ```
   - We get below error when we assigned incorrect value to the variable ```ami_id``` in [dev.auto.tfvars](04f-Terraform-Input-variables-custom-validation/dev.auto.tfvars).
+
+## 9. Input variables - Protect sensitive variables
+
+- In this section, we will implement how to let terraform know that we have sensitive variables defined.
+- We created two variables, ```db_username``` and ```db_password``` in [variables.tf](04g-Terraform-Input-variables-sesitive-variables/variables.tf) file.
+  - We used the argument ```sensitive=true``` in the variable definition.
+- We then created one more file called [secrets.tfvars](04g-Terraform-Input-variables-sesitive-variables/secrets.tfvars) file to store the sensitive variable values.
+- We will use this file in the terraform command using ```-var-file="secrets.tfvars"``` switch.
+  - ```terraform apply -var-file="secrets.tfvars" --auto-approve```
