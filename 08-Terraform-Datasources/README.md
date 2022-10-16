@@ -17,3 +17,11 @@
   behavior.
 - Each instance will separately read from its data source with its own variant of the constraint arguments, producing an indexed
   result.
+
+## 2. Implement data sources in Terraform configuration
+We will create an EC2 instance without specifying AMI ID in variables. Instead, we will fetch the AMI ID using a data source.
+The data source will have necessary filters to fetch the latest amazon linux 2 AMI for us.
+
+For data sources example, refer [data_sources.tf](data_sources.tf).
+
+To access the data source attributes, refer [ec2-create.tf](ec2-create.tf).
