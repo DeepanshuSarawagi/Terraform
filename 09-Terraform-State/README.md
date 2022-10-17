@@ -24,7 +24,7 @@ Below are the problems with local state file. And how it can be resolved using r
   #### Cons:
   - If two members are running Terraform at the same time, one may run into race conditions as multiple Terraform processes
     make concurrent updates to the state files, leading to conflicts, data loss and corruption of state file.
-
+- For implementing backend, refer [version.tf](09a-Terraform-Remote-State-Storage-And-Locking/version.tf).
 
 ## 2b. Terraform State Locking
 To overcome above issues, we need to implement locking of state files. Locking of state file ensures no conflicts.
