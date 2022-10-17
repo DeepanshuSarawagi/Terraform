@@ -32,6 +32,9 @@ When we run terraform plan/apply, a lock file named ```.terraform.lock.hcl``` ge
 We will implement the Terraform State locking using Amazon DynamoDB table. Once the changes are complete, the lock will 
 be released for further infrastructure updates.
 
+For implementing state locking, we need to add ```dynamodb_table``` in the ```backend {}``` block. For example, 
+refer [version.tf](09a-Terraform-Remote-State-Storage-And-Locking/version.tf).
+
 - Not all backends supports state locking, however, AWS S3 supports state locking.
 - State locking happens automatically on all operations (plan/apply/destroy) that could write state.
 - If state locking fails, terraform will not continue.
@@ -39,4 +42,3 @@ be released for further infrastructure updates.
 - If acquiring the lock is taking longer time than expected, Terraform will output a status message.
 - If Terraform doesn't output a message, state locking is still occurring if backend still supports it.
 - Terraform has a ```force-unlock``` command to manually unlock a state of unlocking fails, however, this is highly not recommended.
-- 
