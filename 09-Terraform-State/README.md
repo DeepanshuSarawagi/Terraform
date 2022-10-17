@@ -82,4 +82,18 @@ $terraform show plan.out       # read the plan output file
 $terraform show -json plan.out # show the plan output in json format
 ```
 
-```terraform show``` command will work if state file ```terraform.tfstate``` file is present.
+```terraform show``` command will work if state file ```terraform.tfstate``` is present.
+
+### 5b. Terraform refresh command
+
+- This command comes under Terraform inspecting state.
+- ```terraform refresh``` will update the state file against the real infrastructure cloud objects state.
+- This does not modify infrastructure, but it does change the state file.
+- Command order of execution: refresh, plan, make a decision and apply.
+
+### 5c. Terraform state commands
+
+- ```terraform state list``` is used to list the resources in the state file.
+- ```terraform state show``` is used to show attributes of a single resource within the Terraform state.
+- ```terraform state mv``` command comes under Terraform moving resources.
+  - This command will move an item matched by the address specified in the destination address.
