@@ -97,3 +97,26 @@ $terraform show -json plan.out # show the plan output in json format
 - ```terraform state show``` is used to show attributes of a single resource within the Terraform state.
 - ```terraform state mv``` command comes under Terraform moving resources.
   - This command will move an item matched by the address specified in the destination address.
+  - ```shell
+    terraform state mv -dry-run aws_instance.ec2-east[0] aws_instance.ec2-east-new[0]
+    # Acquiring state lock. This may take a few moments...
+    # Would move "aws_instance.ec2-east[0]" to "aws_instance.ec2-east-new[0]"
+    # Releasing state lock. This may take a few moments...
+    ```
+  - Below is the actual command run results.
+  - ```shell
+    terraform state mv  aws_instance.ec2-east[0] aws_instance.ec2-east-new[0]        
+     #    Acquiring state lock. This may take a few moments...
+     #    Move "aws_instance.ec2-east[0]" to "aws_instance.ec2-east-new[0]"
+     #    Successfully moved 1 object(s).
+     #    Releasing state lock. This may take a few moments...
+
+    ```
+- ```terraform state rm``` command is used to remove items from the terraform state.
+  - This command can remove single resource, single instance of a resource, entire module et cetera.
+  - ```shell
+    terraform state rm -dry-run aws_instance.ec2-east-new[0]                         
+    #    Acquiring state lock. This may take a few moments...
+    #    Would remove aws_instance.ec2-east-new[0]
+    #    Releasing state lock. This may take a few moments...
+    ```
