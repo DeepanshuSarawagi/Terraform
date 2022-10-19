@@ -105,7 +105,7 @@ $terraform show -json plan.out # show the plan output in json format
     ```
   - Below is the actual command run results.
   - ```shell
-    terraform state mv  aws_instance.ec2-east[0] aws_instance.ec2-east-new[0]        
+    $terraform state mv  aws_instance.ec2-east[0] aws_instance.ec2-east-new[0]        
      #    Acquiring state lock. This may take a few moments...
      #    Move "aws_instance.ec2-east[0]" to "aws_instance.ec2-east-new[0]"
      #    Successfully moved 1 object(s).
@@ -114,9 +114,18 @@ $terraform show -json plan.out # show the plan output in json format
     ```
 - ```terraform state rm``` command is used to remove items from the terraform state.
   - This command can remove single resource, single instance of a resource, entire module et cetera.
+  - This command will let terraform know that we do not want to manage the cloud resource using Terraform.
   - ```shell
-    terraform state rm -dry-run aws_instance.ec2-east-new[0]                         
+    $terraform state rm -dry-run aws_instance.ec2-east-new[0]                         
     #    Acquiring state lock. This may take a few moments...
     #    Would remove aws_instance.ec2-east-new[0]
+    #    Releasing state lock. This may take a few moments...
+    ```
+  - Actual command run results:
+  - ```shell
+    $terraform state rm aws_instance.ec2-east-new[0]         
+    #    Acquiring state lock. This may take a few moments...
+    #    Removed aws_instance.ec2-east-new[0]
+    #    Successfully removed 1 resource instance(s).
     #    Releasing state lock. This may take a few moments...
     ```
