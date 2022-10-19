@@ -128,4 +128,7 @@ $terraform show -json plan.out # show the plan output in json format
     #    Removed aws_instance.ec2-east-new[0]
     #    Successfully removed 1 resource instance(s).
     #    Releasing state lock. This may take a few moments...
+    
     ```
+- The ```terraform state replace-provider``` command is used to replace the provider for resources in a Terraform state.
+  - If we want to change the provider information then this command is used.
