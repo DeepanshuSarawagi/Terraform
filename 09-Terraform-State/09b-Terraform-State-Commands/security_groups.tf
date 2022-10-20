@@ -17,6 +17,15 @@ resource "aws_security_group" "vpc_ssh_web" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  // New resource for terraform apply -target
+  ingress {
+    from_port   = 8080
+    protocol    = "tcp"
+    to_port     = 8080
+    description = "Allow port 8080"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   egress {
     from_port   = 0
     protocol    = "-1"
