@@ -132,6 +132,7 @@ $terraform show -json plan.out # show the plan output in json format
     ```
 - The ```terraform state replace-provider``` command is used to replace the provider for resources in a Terraform state.
   - If we want to change the provider information then this command is used.
+<<<<<<< HEAD
 - Terraform State pull/push command:
   - The ```terraform state pull``` command will manually download and output the state to from remote state file.
   - This command also works with local state.
@@ -146,3 +147,42 @@ $terraform show -json plan.out # show the plan output in json format
 
 ### 6a. Terraform taint command
 - 
+=======
+
+- The ```terraform taint``` command manually marks a terraform managed resource as tainted, forcing it to be destroyed and recreated
+  on next apply.
+  - ```shell
+    $terraform taint aws_instance.ec2-east[0]
+    #Acquiring state lock. This may take a few moments...
+    #Resource instance aws_instance.ec2-east[0] has been marked as tainted.
+    #Releasing state lock. This may take a few moments...
+    ```
+  - When we run the terraform plan again, we see following message.
+  - ```shell
+     Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols: 
+     -/+ destroy and then create replacement
+    ```
+- The ```terraform untaint``` command manually unmarks a terraform managed resource as untained, thereby marking it as a primary
+  instance in the state.
+  - ```shell
+    $terraform untaint aws_instance.ec2-east[0]
+    # Acquiring state lock. This may take a few moments...
+    # Resource instance aws_instance.ec2-east[0] has been successfully untainted.
+    # Releasing state lock. This may take a few moments...
+    ```
+  - When we run ```terraform plan``` again, we see following message.
+  - ```text
+    No changes. Your infrastructure matches the configuration.
+
+    Terraform has compared your real infrastructure against your configuration and found no differences, so no changes are needed.
+    Releasing state lock. This may take a few moments...
+    ```
+- Terraform resource targeting using ```-target``` option in terraform plan/apply command.
+  - This targeting capability is provided for exceptional circumstances such as reverting any incorrect change applied on the 
+    cloud object.
+  - It is not recommended to use this ```-target``` option for routine operations.
+  - For list of changes, refer 
+    - [ec2-create.tf](09b-Terraform-State-Commands/ec2-create.tf)
+    - [security_groups.tf](09b-Terraform-State-Commands/security_groups.tf)
+  - ```terraform apply -target=aws_instance.ec2-east --auto-approve``` is the command for reference.
+>>>>>>> c06dc0df4024db8fb38a7f45e0ed27655b052c17
