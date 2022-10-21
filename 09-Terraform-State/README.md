@@ -132,3 +132,17 @@ $terraform show -json plan.out # show the plan output in json format
     ```
 - The ```terraform state replace-provider``` command is used to replace the provider for resources in a Terraform state.
   - If we want to change the provider information then this command is used.
+- Terraform State pull/push command:
+  - The ```terraform state pull``` command will manually download and output the state to from remote state file.
+  - This command also works with local state.
+  - The ```terraform state push``` command will upload the local state to a remote state file.
+- Terraform force-unlock command:
+  - This command will manually unlock the state from desired configuration.
+  - This will not modify the infrastructure.
+  - This command removes the lock on the state for the current configuration.
+  - ```terraform force-unlock LOCK_ID```
+
+## 6. Terraform Taint and untaint commands
+
+### 6a. Terraform taint command
+- 
