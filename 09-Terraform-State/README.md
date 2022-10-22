@@ -132,7 +132,7 @@ $terraform show -json plan.out # show the plan output in json format
     ```
 - The ```terraform state replace-provider``` command is used to replace the provider for resources in a Terraform state.
   - If we want to change the provider information then this command is used.
-<<<<<<< HEAD
+  
 - Terraform State pull/push command:
   - The ```terraform state pull``` command will manually download and output the state to from remote state file.
   - This command also works with local state.
@@ -185,4 +185,4 @@ $terraform show -json plan.out # show the plan output in json format
     - [ec2-create.tf](09b-Terraform-State-Commands/ec2-create.tf)
     - [security_groups.tf](09b-Terraform-State-Commands/security_groups.tf)
   - ```terraform apply -target=aws_instance.ec2-east --auto-approve``` is the command for reference.
->>>>>>> c06dc0df4024db8fb38a7f45e0ed27655b052c17
+
