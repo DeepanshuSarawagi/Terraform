@@ -1,6 +1,6 @@
 resource "aws_security_group" "vpc_ssh_web" {
   description = "Allow SSH access to the instance"
-  name        = "vpc-ssh-web"
+  name        = "vpc-ssh-web-${terraform.workspace}"
   ingress {
     from_port   = 22
     protocol    = "tcp"
@@ -25,6 +25,6 @@ resource "aws_security_group" "vpc_ssh_web" {
     description = "Outbound connections"
   }
   tags = {
-    Name = "vpc-ssh-web"
+    Name = "vpc-ssh-web-${terraform.workspace}"
   }
 }
