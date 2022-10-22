@@ -11,6 +11,9 @@ a set of changes before modifying the main production infrastructure.
 Terraform CLI workspaces are completely different from Terraform Cloud workspaces. Every terraform workspace will have its
 own ```terraform.tfstate``` file.
 
+- Every initialized directory will have at least one workspace.
+- For a given working directory, only one workspace can be selected.
+
 Terraform workspace commands:
 
 ```shell

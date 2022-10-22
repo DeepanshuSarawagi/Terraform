@@ -9,7 +9,7 @@ output "ec2_private_ip" {
 }
 
 output "ec2_public_dns" {
-  value       = "http://${aws_instance.ec2-east.*.public_dns}"
+  value       = [for dns in aws_instance.ec2-east.*.public_dns : "http://${dns}"]
   description = "EC2 instance public dns"
 }
 
