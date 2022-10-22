@@ -19,8 +19,40 @@ Terraform workspace commands:
 ```shell
 $terraform workspace show
 $terraform workspace list
-$terraform workspace new
-$terraform workspace select
-$terraform workspace delete
+$terraform workspace new <workspace name>
+$terraform workspace select <workspace name>
+$terraform workspace delete <workspace name>
 ```
 
+For Terraform workspace implementation using local state, refer [ec2-create.tf](10a-Terraform-Workspaces-local/ec2-create.tf).
+
+Creating a new workspace, creates following directory structure.
+
+- terraform.state.d/dev
+- terraform.state.d/dev/terraform.tfstate
+
+If we try to delete a workspace which is managing resources/not empty, we get below error.
+
+```shell
+terraform workspace delete dev 
+
+# Error: Workspace is not empty
+#
+# Workspace "dev" is currently tracking the following resource instances:
+#   - aws_instance.ec2-east[0]
+#   - aws_security_group.vpc_ssh_web
+#
+# Deleting this workspace would cause Terraform to lose track of any associated remote objects, which would then require you to delete them manually outside of Terraform. You should destroy 
+# these objects with Terraform before deleting the workspace.
+#
+# If you want to delete this workspace anyway, and have Terraform forget about these managed objects, use the -force option to disable this safety check.
+
+
+
+```
+
+
+When we create a terraform workspace using remote backend, a different S3 bucket structure gets created. Here is the snippet
+for your reference.
+
+![Terraform-workspace-remote](10b-Terraform-Workspaces-Remote/Terraform-workspace-remote.png)
