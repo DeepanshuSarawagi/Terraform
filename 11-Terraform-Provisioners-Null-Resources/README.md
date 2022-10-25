@@ -35,3 +35,26 @@ connection {
 ```
 
 ## 1a. File Provisioner:
+File provisioners is used to copy files or directories from machine executing Terraform to the resource newly created.
+
+It supports both SSH and WinRM.
+
+## 1b. local-exec Provisioner:
+
+The local-exec provisioner invokes a local executable script after a terraform resource is created.
+
+This invokes a process on the machine running Terraform and not on the resource.
+
+## 1c. remote-exec Provisioner:
+
+The local-exec provisioner invokes a remote executable script after a terraform resource is created.
+
+This invokes a process on the resource which can be used to execute configuration management tool or bootstrap a cluster.
+
+# 2. Null-Resource
+
+- If you need to run provisioners that aren't directly associated with a specific resource, you can associate them with a null
+  resource.
+- Instances of ```null_resource``` are treated like normal resources, but they don't do anything.
+- Just like other resources, you can configure provisioners and connection details on a null_resource.
+- 
