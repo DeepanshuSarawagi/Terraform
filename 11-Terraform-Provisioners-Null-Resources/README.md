@@ -57,4 +57,3 @@ This invokes a process on the resource which can be used to execute configuratio
   resource.
 - Instances of ```null_resource``` are treated like normal resources, but they don't do anything.
 - Just like other resources, you can configure provisioners and connection details on a null_resource.
-- 

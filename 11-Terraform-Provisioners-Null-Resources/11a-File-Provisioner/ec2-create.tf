@@ -9,4 +9,23 @@ resource "aws_instance" "ec2-east" {
   tags = {
     Name = "My-${terraform.workspace}-Webserver-${count.index}"
   }
+
+  connection {
+    type        = "ssh"
+    host        = self.public_ip
+    user        = "ec2-user"
+    password    = ""
+    private_key = file("terraform-key-mac.pem")
+  }
+
+  provisioner "file" {
+    source      = "product-landing-page.html"
+    destination = "/tmp/product-landing-page.html"
+  }
+
+  provisioner "file" {
+    content     = "ami used: ${self.ami}"
+    destination = "/tmp/file.log"
+  }
+
 }
