@@ -10,10 +10,6 @@ We can also run configuration management resources like chef, puppet after resou
 - Destroy time provisioners
   - Kicked in during resource destroy time.
 
-Failure Behaviour: 
-- ```Continue``` - Ignore the failure and continue with creation or destruction.
-- ```Fail``` - Raise an error and stop applying. If creation provisioner: ```taint``` resource.
-
 Types of Provisioners:
 - File Provisioner
 - local-exec provisioner
@@ -40,6 +36,10 @@ File provisioners is used to copy files or directories from machine executing Te
 It supports both SSH and WinRM.
 
 Implementation of [File Provisioner](11a-File-Provisioner).
+
+Failure Behaviour:
+- ```Continue``` - Ignore the failure and continue with creation or destruction.
+- ```Fail``` - Raise an error and stop applying. If creation provisioner: ```taint``` resource. For example, refer [ec2-create.tf](11a-File-Provisioner/ec2-create.tf).
 
 ## 1b. local-exec Provisioner:
 

@@ -28,4 +28,10 @@ resource "aws_instance" "ec2-east" {
     destination = "/tmp/file.log"
   }
 
+  provisioner "file" {
+    source      = "product-landing-page.html"
+    destination = "/var/www/html/product-landing-page.html"
+    on_failure  = continue # This will continue creating resources even though provisioner fails
+  }
+
 }
