@@ -39,6 +39,8 @@ File provisioners is used to copy files or directories from machine executing Te
 
 It supports both SSH and WinRM.
 
+Implementation of [File Provisioner](11a-File-Provisioner).
+
 ## 1b. local-exec Provisioner:
 
 The local-exec provisioner invokes a local executable script after a terraform resource is created.
