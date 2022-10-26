@@ -49,9 +49,11 @@ This invokes a process on the machine running Terraform and not on the resource.
 
 ## 1c. remote-exec Provisioner:
 
-The local-exec provisioner invokes a remote executable script after a terraform resource is created.
+The remote-exec provisioner invokes a remote executable script after a terraform resource is created.
 
 This invokes a process on the resource which can be used to execute configuration management tool or bootstrap a cluster.
+
+
 
 # 2. Null-Resource
 
