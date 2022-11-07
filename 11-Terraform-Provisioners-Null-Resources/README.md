@@ -53,6 +53,7 @@ The remote-exec provisioner invokes a remote executable script after a terraform
 
 This invokes a process on the resource which can be used to execute configuration management tool or bootstrap a cluster.
 
+For instance, refer [ec2-create.tf](11a-File-Provisioner/ec2-create.tf).
 
 
 # 2. Null-Resource

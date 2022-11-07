@@ -15,7 +15,7 @@ resource "aws_instance" "ec2-east" {
     host        = self.public_ip
     user        = "ec2-user"
     password    = ""
-    private_key = file("terraform-key-mac.pem")
+    private_key = file("terraform-key-win.pem")
   }
 
   provisioner "file" {
@@ -32,6 +32,13 @@ resource "aws_instance" "ec2-east" {
     source      = "product-landing-page.html"
     destination = "/var/www/html/product-landing-page.html"
     on_failure  = continue # This will continue creating resources even though provisioner fails
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "sleep 180",
+      "sudo cp /tmp/product-landing-page.html /var/www/html/product-landing-page.html"
+    ]
   }
 
 }

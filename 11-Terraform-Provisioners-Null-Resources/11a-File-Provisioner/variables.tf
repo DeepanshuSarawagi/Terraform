@@ -23,7 +23,7 @@ variable "resource_count" {
 }
 
 variable "key_name" {
-  default     = "terraform-key-mac"
+  default     = "terraform-key-win"
   type        = string
   description = "Key pair which is required to SSH into instances"
 }
