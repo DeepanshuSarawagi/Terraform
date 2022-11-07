@@ -64,4 +64,4 @@ For instance, refer [ec2-create.tf](11a-File-Provisioner/ec2-create.tf).
 - Just like other resources, you can configure provisioners and connection details on a null_resource.
 
 # 2a. Null Provider
-- 
+- The null provider has constructs that intentionally do nothing.
