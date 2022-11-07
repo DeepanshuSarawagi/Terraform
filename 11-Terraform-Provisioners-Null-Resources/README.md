@@ -62,3 +62,6 @@ For instance, refer [ec2-create.tf](11a-File-Provisioner/ec2-create.tf).
   resource.
 - Instances of ```null_resource``` are treated like normal resources, but they don't do anything.
 - Just like other resources, you can configure provisioners and connection details on a null_resource.
+
+# 2a. Null Provider
+- 

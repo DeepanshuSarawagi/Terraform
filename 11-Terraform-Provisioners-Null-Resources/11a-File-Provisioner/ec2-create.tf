@@ -28,17 +28,27 @@ resource "aws_instance" "ec2-east" {
     destination = "/tmp/file.log"
   }
 
-  provisioner "file" {
-    source      = "product-landing-page.html"
-    destination = "/var/www/html/product-landing-page.html"
-    on_failure  = continue # This will continue creating resources even though provisioner fails
-  }
+#  provisioner "file" {
+#    source      = "product-landing-page.html"
+#    destination = "/var/www/html/product-landing-page.html"
+#    on_failure  = continue # This will continue creating resources even though provisioner fails
+#  }
 
   provisioner "remote-exec" {
     inline = [
-      "sleep 180",
+      "sleep 90",
       "sudo cp /tmp/product-landing-page.html /var/www/html/product-landing-page.html"
     ]
   }
 
+  provisioner "local-exec" {
+    command = "echo ${self.private_ip} >> local-exec.txt"
+    working_dir = "${path.module}/local-exec"
+  }
+
+  provisioner "local-exec" {
+    when = destroy
+    command = "echo Provisioned AWS instance ${self.public_dns} destroyed at %date% >> local-exec.txt"
+    working_dir = "${path.module}/local-exec"
+  }
 }

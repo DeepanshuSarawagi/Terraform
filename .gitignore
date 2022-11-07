@@ -37,3 +37,5 @@ idea/*
 #Ignore any private keys in the project
 **/*.pem
 **/*.ppk
+
+**/*/local-exec
