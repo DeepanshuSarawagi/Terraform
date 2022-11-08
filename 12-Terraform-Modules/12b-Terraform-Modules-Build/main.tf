@@ -1,12 +1,12 @@
 resource "aws_s3_bucket" "s3_bucket" {
-  bucket = var.bucket_name
-  tags = var.bucket_tags
-  force_destroy = true   # This will destroy the resource even if the bucket is not empty
+  bucket        = var.bucket_name
+  tags          = var.bucket_tags
+  force_destroy = true # This will destroy the resource even if the bucket is not empty
 }
 
 resource "aws_s3_bucket_acl" "s3_bucket_acl" {
   bucket = aws_s3_bucket.s3_bucket.id
-  acl = "public-read"
+  acl    = "public-read"
 }
 
 resource "aws_s3_bucket_policy" "s3_bucket_policy" {
