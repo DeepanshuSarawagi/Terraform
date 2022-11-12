@@ -1,19 +1,19 @@
 output "arn" {
-  value       = aws_s3_bucket.s3_bucket.arn
+  value       = module.website_s3_bucket.arn
   description = "ARN of the S3 bucket"
 }
 
 output "name" {
-  value       = aws_s3_bucket.s3_bucket.id
+  value       = module.website_s3_bucket.name
   description = "Bucket ID of the S3 bucket"
 }
 
 output "domain" {
-  value       = aws_s3_bucket_website_configuration.aws_s3_bucket_website.website_domain
+  value       = module.website_s3_bucket.domain
   description = "Domain name of the S3 bucket"
 }
 
 output "endpoint" {
-  value       = aws_s3_bucket_website_configuration.aws_s3_bucket_website.website_endpoint
+  value       = module.website_s3_bucket.endpoint
   description = "Endpoint information of the S3 bucket"
 }
