@@ -38,5 +38,7 @@ $terraform taint 'module.ec2_instance[\"one\"].aws_instance.this[0]'
 #Resource instance module.ec2_instance["one"].aws_instance.this[0] has been marked as tainted.
 ```
 
+## Terraform - Download modules
 
+We can use the ```terraform get``` command to download any remote module in the ```.terraform``` directory.
 
