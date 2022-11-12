@@ -42,9 +42,9 @@ resource "aws_s3_bucket_website_configuration" "aws_s3_bucket_website" {
 resource "aws_s3_object" "aws_s3_bucket_object" {
   bucket = aws_s3_bucket.s3_bucket.id
   key    = "product-landing-page.html"
-  source = "product-landing-page.html"
+  source = var.bucket_static_website_source
   content_type = "text/html"
   acl = "public-read"
-  etag = filemd5("${path.module}/product-landing-page.html")
+  etag = filemd5("${path.cwd}/${var.bucket_static_website_source}")
   depends_on = [aws_s3_bucket.s3_bucket, aws_s3_bucket_acl.s3_bucket_acl, aws_s3_bucket_policy.s3_bucket_policy]
 }

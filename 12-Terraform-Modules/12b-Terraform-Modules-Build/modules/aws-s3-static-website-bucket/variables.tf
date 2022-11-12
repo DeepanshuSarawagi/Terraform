@@ -13,3 +13,8 @@ variable "bucket_tags" {
   type        = map(string)
   default     = {}
 }
+
+variable bucket_static_website_source {
+  description = "The source content for hosting the static website on S3 bucket"
+  type = string
+}
