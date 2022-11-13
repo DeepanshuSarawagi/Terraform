@@ -10,6 +10,7 @@
 - RBAC system, Sentinel for governing Terraform configurations.
 - Free accounts for small teams, paid plans for medium-sized business. 
 - Self-hosted distribution for large enterprises called as Terraform Enterprise.
+- We can manually lock the workspace to prevent the terraform runs.
 
 ## Terraform VCS Integration
 
