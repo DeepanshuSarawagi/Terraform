@@ -19,3 +19,17 @@ When integrated with version control system, Terraform cloud,
 - Can automatically initiate terraform runs.
 - Makes code review easier by automatically predicting how PRs will affect infrastructure.
 - Publishing new versions of private TF module is as easy as pushing a tag to the modules' repository.
+
+## Terraform Private Module Registry
+
+Terraform cloud's private module registry helps you share Terraform modules across your organization.
+
+It includes support for modules versioning, a searchable and filterable list of available modules and a configuration designer
+to help build workspace faster.
+
+It works much like public module registry.
+
+## Terraform Sentinel
+
+Sentinel is an embedded policy-as-code framework integrated with hashicorp enterprise products.
+It enabled fine-grained logic-based policy decisions, and can be extended to use information from external sources.
