@@ -36,4 +36,21 @@ It enabled fine-grained logic-based policy decisions, and can be extended to use
 
 Terraform Sentinel policy check is not available in free plan version.
 
-Sentinel as code can be used for cost control policies. 
+Sentinel as code can be used for cost control policies.
+
+```terraform login``` command can be used to log in to tf cloud organization.
+
+Below is the sample terraform sentinel policy to check the valid tf version.
+
+```terraform
+import "tfplan/v2" as tfplan
+import "strings"
+
+v = strings.split(tfplan.terraform_version, ".")
+version_major = int(v[1])
+version_minor = int(v[2])
+
+main = rule {
+  version_major >= 14
+}
+```
