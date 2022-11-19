@@ -40,6 +40,13 @@ Sentinel as code can be used for cost control policies.
 
 ```terraform login``` command can be used to log in to tf cloud organization.
 
+We need to import certain terraform specific libraries for sentinel to access to your configuration.
+
+- tfplan - This gives sentinel access to your terraform plan
+- tfstate - This gives access to your tf state files
+- tfconfig - This gives access to your .tf files
+- tfrun - This gives access to your workspace and run logs
+
 Below is the sample terraform sentinel policy to check the valid tf version.
 
 ```terraform
@@ -54,3 +61,5 @@ main = rule {
   version_major >= 14
 }
 ```
+
+Terraform sentinel policies will be executed after the terraform plan and before terraform apply.
