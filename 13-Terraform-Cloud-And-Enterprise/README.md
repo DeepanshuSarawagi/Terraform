@@ -33,3 +33,7 @@ It works much like public module registry.
 
 Sentinel is an embedded policy-as-code framework integrated with hashicorp enterprise products.
 It enabled fine-grained logic-based policy decisions, and can be extended to use information from external sources.
+
+Terraform Sentinel policy check is not available in free plan version.
+
+Sentinel as code can be used for cost control policies. 
