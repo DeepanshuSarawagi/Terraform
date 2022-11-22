@@ -5,6 +5,8 @@
 - Every Resource type is implemented by a Provider
 - Without providers, terraform cannot manage any infrastructure.
 - Providers are distributed separately from Terraform and each provider has its own release and version.
+- There is no terraform binaries for AIX.
+- Terraform is primarily designed on immutable infrastructure principles
 
 ### 1a. Provider Requirements
 - provider name

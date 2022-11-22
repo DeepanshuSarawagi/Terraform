@@ -19,6 +19,16 @@ When integrated with version control system, Terraform cloud,
 - Can automatically initiate terraform runs.
 - Makes code review easier by automatically predicting how PRs will affect infrastructure.
 - Publishing new versions of private TF module is as easy as pushing a tag to the modules' repository.
+- Terraform cloud supports following VCS providers
+  -  GitHub
+  - GitHub.com (OAuth)
+  - GitHub Enterprise
+  - GitLab.com
+  - GitLab EE and CE
+  - Bitbucket Cloud
+  - Bitbucket Server
+  - Azure DevOps Server
+  - Azure DevOps Services
 
 ## Terraform Private Module Registry
 

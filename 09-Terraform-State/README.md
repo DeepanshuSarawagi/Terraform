@@ -93,6 +93,9 @@ $terraform show -json plan.out # show the plan output in json format
 
 ### 5c. Terraform state commands
 
+The terraform state command is used for advanced state management. Rather than modify the state directly, the terraform state commands can be used in many cases instead.
+To refresh Terraform state, use the command terraform apply -refresh-only
+
 - ```terraform state list``` is used to list the resources in the state file.
 - ```terraform state show``` is used to show attributes of a single resource within the Terraform state.
 - ```terraform state mv``` command comes under Terraform moving resources.
@@ -142,6 +145,8 @@ $terraform show -json plan.out # show the plan output in json format
   - This will not modify the infrastructure.
   - This command removes the lock on the state for the current configuration.
   - ```terraform force-unlock LOCK_ID```
+- ```terraform apply -refresh-only``` does not modify your infrastructure but it does modify the state file if it 
+  detects changes were made outside of Terraform.
 
 ## 6. Terraform Taint and untaint commands
 
