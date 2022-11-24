@@ -147,6 +147,8 @@ To refresh Terraform state, use the command terraform apply -refresh-only
   - ```terraform force-unlock LOCK_ID```
 - ```terraform apply -refresh-only``` does not modify your infrastructure but it does modify the state file if it 
   detects changes were made outside of Terraform.
+- Whenever a configuration's backend changes, you must run terraform init again to validate and configure the backend 
+  before you can perform any plans, applies, or state operations. Re-running init with an already-initialized backend will update the working directory to use the new backend settings. Either -reconfigure or -migrate-state must be supplied to update the backend configuration.
 
 ## 6. Terraform Taint and untaint commands
 
