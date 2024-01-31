@@ -13,7 +13,7 @@ provider aws {
 }
 
 resource "aws_instance" "myEC2Instance" {  // The syntax is Resource-Type "Resource-Name" "Block Label"
-  ami = "ami-05fa00d4c63e32376"  // The syntax is Arguments/Identifiers = Argument-Values/Expression
+  ami = "ami-0a3c3a20c09d6f377"  // The syntax is Arguments/Identifiers = Argument-Values/Expression
   instance_type = "t2.micro"
   tags = {
     Name = "TerraformInstance1"
