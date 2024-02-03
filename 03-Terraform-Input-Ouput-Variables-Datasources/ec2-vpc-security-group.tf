@@ -1,7 +1,7 @@
 resource "aws_security_group" "vpc-ssh" {
   name = "default-vpc-ssh"
   description = "Allow SSH access from my local desktop"
-
+  vpc_id = data.aws_vpc.default.id
   ingress {
     from_port = 22
     protocol  = "tcp"
@@ -27,7 +27,7 @@ resource "aws_security_group" "vpc-ssh" {
 resource "aws_security_group" "vpc-web" {
   name = "default-vpc-web"
   description = "Allow web access"
-
+  vpc_id = data.aws_vpc.default.id
   ingress {
     from_port = 80
     protocol  = "tcp"
