@@ -20,6 +20,7 @@ resource "aws_instance" "DemoInstance1" {
   user_data = file("${path.module}/user-data-script.sh")
   associate_public_ip_address = "true"
   availability_zone = "us-east-1b"
+  key_name = "us-east-1-key"
   tags = {
     Name = "TerraformEC2Demo"
   }
