@@ -3,7 +3,7 @@ terraform {
   required_providers {
     aws = {                      // Here aws is an argument within required_providers block. Also specifically, it is a
                                  // map argument
-      version = "~> 4.0"         # This will use aws provider version 4 but not version 5 if released
+      version = "~> 5.35"         # This will use aws provider version 4 but not version 5 if released
       source = "Hashicorp/aws"
     }
   }
@@ -15,7 +15,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "DemoInstance1" {
-  ami = "ami-05fa00d4c63e32376"
+  ami = "ami-0a3c3a20c09d6f377"
   instance_type = "t2.micro"
   user_data = file("${path.module}/user-data-script.sh")
   associate_public_ip_address = "true"
@@ -24,4 +24,3 @@ resource "aws_instance" "DemoInstance1" {
     Name = "TerraformEC2Demo"
   }
 }
-
