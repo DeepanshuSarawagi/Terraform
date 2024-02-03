@@ -7,7 +7,7 @@ resource "aws_security_group" "vpc-ssh" {
     protocol  = "tcp"
     to_port   = 22
     description = "SSH from default VPC"
-    cidr_blocks = ["49.205.115.75/32"]
+    cidr_blocks = ["122.183.46.226/32"]
   }
 
   egress {
