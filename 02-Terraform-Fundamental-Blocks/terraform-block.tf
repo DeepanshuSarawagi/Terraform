@@ -1,5 +1,5 @@
 terraform {
-  required_version = "~> 1.2.9"  # This will allow to use terraform version > 1.2.9 but < 1.3
+  required_version = "~> 1.7.2"  # This will allow to use terraform version > 1.7.x but < 1.8
   required_providers {
     aws = {                      // Here aws is an argument within required_providers block. Also specifically, it is a
                                  // map argument
