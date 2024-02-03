@@ -16,7 +16,7 @@ output "for_output_map" {
 
 output "for_output_map_advanced" {
   value = {
-    for c, instance in aws_instance.TerraformEC2Demo1: c => instance.public_dns
+    for c, instance in aws_instance.TerraformEC2Demo1: c + 1 => instance.public_dns
   }  // Here variable c stands for count which is defined in the resource aws_instance
   description = "Output using for loop with map - Advanced"
 }
