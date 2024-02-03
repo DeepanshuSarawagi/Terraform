@@ -2,7 +2,7 @@ terraform {
   required_version = "~> 1.2"
   required_providers {
     aws = {
-      version = "4.0"
+      version = "~> 5.0"
       source = "Hashicorp/aws"
     }
   }
@@ -21,6 +21,11 @@ resource "aws_instance" "TerraformEC2Demo1" {
   count = 2
   tags = {
     Name = "TerraformEC2Demo-${count.index + 1}"
+    Course = "Terraform EKS Course"
+    Created_By = "Deepanshu Sarawagi"
+    Type = "Upskill"
+    ec2_instance_type = var.instance_type_map["qa"]
+    public_dns = aws_instance.TerraformEC2Demo1.public_dns
   }
   availability_zone = var.availability_zone
   associate_public_ip_address = var.associate_public_ip_address
