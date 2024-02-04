@@ -6,6 +6,8 @@ data "aws_availability_zones" "my_azs" {
 }
 
 data "aws_ec2_instance_type_offerings" "myEc2Instance" {
+  for_each = toset(data.aws_availability_zones.my_azs.names)   // Instead of hard-coding AZs, we are using datasource and its
+                                                              // to get it for us
   filter {
     name   = "location"
     values = [each.key]
@@ -18,8 +20,6 @@ data "aws_ec2_instance_type_offerings" "myEc2Instance" {
     name   = "instance-type"
     values = ["t3.micro"]
   }
-  for_each = toset(data.aws_availability_zones.my_azs.names)   // Instead of hard-coding AZs, we are datasource and its
-                                                              // to get it for us
   location_type = "availability-zone"
 }
 
@@ -59,7 +59,7 @@ data "aws_ami" "amzlinux2" {
 
   filter {
     name   = "name"
-    values = ["amzn2-ami-kernel-5.10-hvm-*x86_64-gp2"]
+    values = ["al2023-ami-*-kernel-6.1-x86_64"]
   }
 
   filter {

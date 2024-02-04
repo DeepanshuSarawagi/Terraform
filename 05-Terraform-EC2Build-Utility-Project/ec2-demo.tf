@@ -1,8 +1,8 @@
 terraform {
-  required_version = "~> 1.2"
+  required_version = "~> 1.7"
   required_providers {
     aws = {
-      version = "~> 4.0"
+      version = "~> 5.0"
       source = "hashicorp/aws"
     }
   }
@@ -31,7 +31,7 @@ resource "aws_instance" "ec2Demo" {
   root_block_device {
     encrypted = true
     delete_on_termination = true
-    volume_size = 8
+    volume_size = 30
     volume_type = "gp2"
   }
   ebs_block_device {
