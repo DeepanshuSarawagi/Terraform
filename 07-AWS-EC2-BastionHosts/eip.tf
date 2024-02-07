@@ -1,4 +1,4 @@
-resource "aws_eip" "lb" {
+resource "aws_eip" "bastion_eip" {
   instance = module.bastion_ec2_instance.id
   domain   = "vpc"
   tags = local.common_tags
