@@ -35,3 +35,13 @@ output "azs" {
   description = "A list of availability zones spefified as argument to this module"
   value       = module.vpc.azs
 }
+
+# bastion host ID and EIP
+
+output "ec2_bastion_public_instance_ids" {
+  value = module.bastion_ec2_instance.id
+}
+
+output "ec2_bastion_public_ip" {
+  value = aws_eip.bastion_eip.public_ip
+}
