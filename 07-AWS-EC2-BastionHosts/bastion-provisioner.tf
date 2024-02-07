@@ -6,13 +6,13 @@ resource "null_resource" "bastion_copy_keys" {
     host        = aws_eip.bastion_eip.public_ip
     user        = "ec2-user"
     password    = ""
-    private_key = file("${path.module}/private-key/us-east-1-key.pem")
+    private_key = file("private-key/us-east-1-key.pem")
   }
 
   # File provisioner
 
   provisioner "file" {
-    source      = file("${path.module}/private-key/us-east-1-key.pem")
+    source      = "${path.module}/private-key/us-east-1-key.pem"
     destination = "/tmp/us-east-1-key.pem"
   }
 
@@ -26,6 +26,6 @@ resource "null_resource" "bastion_copy_keys" {
 
   provisioner "local-exec" {
     command     = "echo VPC created on `date` and VPD ID: ${module.vpc.vpc_id} >> vpc-creation-time.txt"
-    working_dir = "${path.module}/local-exec-provisioner-files/"
+    working_dir = "local-exec-provisioner-files/"
   }
 }
