@@ -1,20 +1,20 @@
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
   version = "5.5.1"
-  name = "my-vpc-terraform"
-  cidr = "10.0.0.0/16"
+  name = "${local.name}-${var.vpc_name}"
+  cidr = var.vpc_cidr_block
 
-  azs = ["us-east-1a", "us-east-1b"]
-  private_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
-  public_subnets = ["10.0.101.0/24", "10.0.102.0/24"]
+  azs = var.availability_zone
+  private_subnets = var.vpc_private_subnets
+  public_subnets = var.vpc_public_subnets
 
   // Database specific configuration
-  database_subnets = ["10.0.151.0/24", "10.0.152.0/24"]
-  create_database_subnet_group = true
+  database_subnets = var.vpc_database_subnets
+  create_database_subnet_group = var.vpc_create_database_subnet_group
 
   // nat gateway for outbound network
-  enable_nat_gateway = true
-  single_nat_gateway = true
+  enable_nat_gateway = var.vpc_enable_nat_gateway
+  single_nat_gateway = var.vpc_single_nat_gateway
 
   // VPC DNS parameters
   enable_dns_hostnames = true
@@ -32,13 +32,16 @@ module "vpc" {
     Name = "Database-subnet-using-Terraform"
   }
 
-  tags = {
+  tags = merge({
     Owner = "Deepanshu"
     Env = "Dev"
-  }
+  }, local.common_tags)
 
-  vpc_tags = {
-    Name = "vpc-dev"
-  }
+  vpc_tags = merge(
+    {
+      Name = "vpc-dev"
+    }, local.common_tags
+  )
 
+  map_public_ip_on_launch = true
 }
