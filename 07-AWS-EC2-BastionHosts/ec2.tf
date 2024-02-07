@@ -1,4 +1,4 @@
-module "ec2_instance" {
+module "bastion_ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "5.6.0"
   name = "${local.name}-bastion-host"
