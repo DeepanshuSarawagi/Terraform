@@ -113,7 +113,7 @@ variable "cluster_service_ipv4_cidr" {
 variable "cluster_version" {
   description = "Kubernetes minor version to use for the EKS cluster (for example 1.21)"
   type = string
-  default     = null
+  default     = "1.28"
 }
 variable "cluster_endpoint_private_access" {
   description = "Indicates whether or not the Amazon EKS private API server endpoint is enabled."
@@ -133,5 +133,22 @@ variable "cluster_endpoint_public_access_cidrs" {
   default     = ["0.0.0.0/0"]
 }
 
+/*
+The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns
+addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does
+not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom
+CIDR block when you create a cluster, changing this value will force a new cluster to be created.
+The block must meet the following requirements
+
+Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16.
+Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.
+Between /24 and /12.
+*/
+
+variable "kubernetes_service_ipv4_cidr" {
+  type = string
+  default = "172.20.0.0/16"
+  description = "The CIDR block to assign Kubernetes pod and service IP addresses from."
+}
 # EKS Node Group Variables
 ## Placeholder space you can create if required
