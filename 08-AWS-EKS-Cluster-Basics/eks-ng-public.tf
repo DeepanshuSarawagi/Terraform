@@ -16,7 +16,7 @@ resource "aws_eks_node_group" "eks_public_ng"  {
 
   remote_access = {
     ec2_ssh_key = var.instance_keypair
-    
+
 
   }
 
@@ -26,4 +26,14 @@ resource "aws_eks_node_group" "eks_public_ng"  {
     max_size = 2
   }
 
+  update_config = {
+    max_unavailable = 1
+
+  }
+
+  depends_on = [
+    aws_iam_role_policy_attachment.eks-AmazonEKSWorkerNodePolicy,
+    aws_iam_role_policy_attachment.eks-AmazonEKS_CNI_Policy,
+    aws_iam_role_policy_attachment.eks-AmazonEC2ContainerRegistryReadOnly
+  ]
 }
