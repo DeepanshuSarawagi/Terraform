@@ -21,3 +21,31 @@ Following policies provided by Amazon EKS can be attached to this role.
 - AmazonEC2ContainerRegistryReadOnly
 
 Refer to [iam-eks-nodegroup.tf](iam-eks-nodegroup.tf) terraform manifest for more details.
+
+Sample aws-auth configMap:
+
+```yaml
+apiVersion: v1
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::xxxxxxxxxxxx:role/CLOUD-dev-eks-nodegroup-role
+      username: system:node:{{EC2PrivateDNSName}}
+  mapUsers: |
+    - groups:
+      - system:masters
+      userarn: arn:aws:iam::xxxxxxxxxxx:user/terraform-eks
+      username: terraform-eks
+    - groups:
+      - system:masters
+      userarn: arn:aws:iam::xxxxxxxxxx:root
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2024-02-13T14:38:30Z"
+  name: aws-auth
+  namespace: kube-system
+  resourceVersion: "10056"
+  uid: 32bc0aba-6a1c-472c-aea4-6b1d2f0e8e43
+```

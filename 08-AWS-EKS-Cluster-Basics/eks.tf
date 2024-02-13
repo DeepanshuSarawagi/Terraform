@@ -24,8 +24,8 @@ resource "aws_eks_cluster" "eks_cluster" {
   tags = local.common_tags
 }
 
-resource "aws_cloudwatch_log_group" "eks_cluster_log_group_retention" {
-  name              = "/aws/eks/${aws_eks_cluster.eks_cluster.name}/cluster"
-  log_group_class   = "INFREQUENT_ACCESS"
-  retention_in_days = 7
-}
+#resource "aws_cloudwatch_log_group" "eks_cluster_log_group_retention" {
+#  name              = "/aws/eks/${aws_eks_cluster.eks_cluster.name}/cluster"
+#  log_group_class   = "INFREQUENT_ACCESS"
+#  retention_in_days = 7
+#}
