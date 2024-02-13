@@ -37,5 +37,7 @@ resource "aws_eks_node_group" "eks_public_ng"  {
     aws_iam_role_policy_attachment.eks-AmazonEC2ContainerRegistryReadOnly
   ]
 
-  tags = local.common_tags
+  tags = merge({
+    Name = "Public-Node-Group"
+  }, local.common_tags)
 }
