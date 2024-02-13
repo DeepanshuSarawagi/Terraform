@@ -20,6 +20,8 @@ resource "aws_eks_cluster" "eks_cluster" {
     aws_iam_role_policy_attachment.eks-AmazonEKSClusterPolicy,
     aws_iam_role_policy_attachment.eks-AmazonEKSVPCResourceController
   ]
+
+  tags = local.common_tags
 }
 
 resource "aws_cloudwatch_log_group" "eks_cluster_log_group_retention" {
