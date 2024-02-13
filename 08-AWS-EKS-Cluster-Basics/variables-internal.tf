@@ -112,7 +112,7 @@ variable "cluster_service_ipv4_cidr" {
 
 variable "cluster_version" {
   description = "Kubernetes minor version to use for the EKS cluster (for example 1.21)"
-  type = string
+  type        = string
   default     = "1.28"
 }
 variable "cluster_endpoint_private_access" {
@@ -146,8 +146,8 @@ Between /24 and /12.
 */
 
 variable "kubernetes_service_ipv4_cidr" {
-  type = string
-  default = "172.20.0.0/16"
+  type        = string
+  default     = "172.20.0.0/16"
   description = "The CIDR block to assign Kubernetes pod and service IP addresses from."
 }
 # EKS Node Group Variables

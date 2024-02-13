@@ -50,12 +50,12 @@ output "ec2_bastion_public_ip" {
 
 output "cluster_id" {
   description = "The name/id of EKS cluster"
-  value = aws_eks_cluster.eks_cluster.id
+  value       = aws_eks_cluster.eks_cluster.id
 }
 
 output "cluster_arn" {
   description = "The ARN of EKS cluster"
-  value = aws_eks_cluster.eks_cluster.arn
+  value       = aws_eks_cluster.eks_cluster.arn
 }
 
 output "cluster_certificate_authority_data" {
@@ -75,7 +75,7 @@ output "cluster_version" {
 
 output "cluster_iam_role_name" {
   description = "IAM role name of the EKS cluster."
-  value       = aws_iam_role.eks_master_role.name 
+  value       = aws_iam_role.eks_master_role.name
 }
 
 output "cluster_iam_role_arn" {
@@ -106,7 +106,7 @@ output "node_group_public_arn" {
 
 output "node_group_public_status" {
   description = "Public Node Group status"
-  value       = aws_eks_node_group.eks_public_ng.status 
+  value       = aws_eks_node_group.eks_public_ng.status
 }
 
 output "node_group_public_version" {
@@ -128,7 +128,7 @@ output "node_group_private_arn" {
 
 output "node_group_private_status" {
   description = "Private Node Group status"
-  value       = aws_eks_node_group.eks_private_ng.status 
+  value       = aws_eks_node_group.eks_private_ng.status
 }
 
 output "node_group_private_version" {
