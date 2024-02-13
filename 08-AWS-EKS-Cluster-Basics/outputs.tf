@@ -113,3 +113,25 @@ output "node_group_public_version" {
   description = "Public Node Group Kubernetes Version"
   value       = aws_eks_node_group.eks_public_ng.version
 }
+
+# EKS Node Group Outputs - Private
+
+output "node_group_private_id" {
+  description = "Node Group 1 ID"
+  value       = aws_eks_node_group.eks_private_ng.id
+}
+
+output "node_group_private_arn" {
+  description = "Private Node Group ARN"
+  value       = aws_eks_node_group.eks_private_ng.arn
+}
+
+output "node_group_private_status" {
+  description = "Private Node Group status"
+  value       = aws_eks_node_group.eks_private_ng.status 
+}
+
+output "node_group_private_version" {
+  description = "Private Node Group Kubernetes Version"
+  value       = aws_eks_node_group.eks_private_ng.version
+}
