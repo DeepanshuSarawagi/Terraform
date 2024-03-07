@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp1-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: myapp1
+  template:
+    metadata:
+      name: myapp1-pod
+      labels:
+        app: myapp1
+    spec:
+      containers:
+        - name: myapp1-container
+          image: stacksimplify/kubenginx:1.0.0
+          ports:
+            - containerPort: 80
